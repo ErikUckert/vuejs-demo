@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="nav-bar"></div>
     <div id="app">
-        <h1>{{product}}</h1>
-        <h2>Yes, {{product}} is realy my favorite type of cloth.</h2>
+        <div class="product">
+            <div class="product-image">
+                <img v-bind:src="image" alt="">
+            </div>
+            <div class="produtc-info">
+                <h1>{{product}}</h1>
+                <a :href="link_to_more_products">Here you can find more {{product}}</a> <!-- 'v-bind:href' has a shortcut to simply ':href' -->
+            </div>
+            
+        </div>
+
     </div>
 
     <!-- development version, includes helpful console warnings -->
