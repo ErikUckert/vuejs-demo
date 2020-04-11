@@ -23,6 +23,12 @@
                 <ul>
                     <li v-for='detail in details'>{{detail}}</li>
                 </ul>
+                <p>You can order these {{product}} in the following marvelous colors:</p>
+                <ul>
+                    <li v-for='variant in variants' v-bind:key='variant.variantId'>
+                    {{variant.variantColor}}
+                    </li>
+                </ul>
                 <a :href="link">Here you can find more {{product}}</a> <!-- 'v-bind:href' has a shortcut to simply ':href' -->
             </div>
             
