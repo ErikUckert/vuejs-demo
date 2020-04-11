@@ -11,7 +11,8 @@
     <div id="app">
         <div class="product">
             <div class="product-image">
-                <img v-bind:src="image" alt="">
+                <img v-show='inventory > 10' v-bind:src="image" alt="">
+                <img v-show='inventory <= 10' v-bind:src="oosImage" v-bind:alt="product + ' ' + altText">
             </div>
             <div class="produtc-info">
                 <h1>{{product}}</h1>
