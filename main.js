@@ -3,7 +3,7 @@ var app = new Vue({
     data: {
         brand: 'SuperVue',
         product: 'Socks',
-        image: './assets/vmSocks-green-onWhite.jpg',
+        selectedVariant: 0,
         oosImage: './assets/oos-vmSocks-green-onWhite.jpg',
         altText: 'Out of Stock',
         link: 'https://www.amazon.de/s?k=socken&__mk_de_DE=ÅMÅŽÕÑ&ref=nb_sb_noss_2',
@@ -13,13 +13,13 @@ var app = new Vue({
         details: ['100% cotton', '0% polyester', '110% superstylisch'],
         variants: [
             {
-                variantID: 1,
+                variantID: 0,
                 variantColor: 'green',
                 variantImage: './assets/vmSocks-green-onWhite.jpg',
                 variantInventory: 99
             },
             {
-                variantID: 2,
+                variantID: 1,
                 variantColor: 'blue',
                 variantImage: './assets/vmSocks-blue-onWhite.jpg',
                 variantInventory: 8
@@ -36,13 +36,17 @@ var app = new Vue({
                 this.cart -= 1
             }  
         },
-        updateProduct: function(variantImage) {
-            this.image = variantImage
+        updateProduct: function(index) {
+            this.selectedVariant = index
+            console.log(index)
         }
     },
     computed: {
         title() {
             return this.brand + ' ' + this.product
+        },
+        image() {
+            return this.variants[this.selectedVariant].variantImage
         }
     }
 })
