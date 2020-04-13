@@ -24,23 +24,25 @@
                     <li v-for='detail in details'>{{detail}}</li>
                 </ul>
                 <p>You can order these {{product}} in the following marvelous colors:</p>
-                <ul>
-                    <li v-for='variant in variants' 
-                        v-bind:key='variant.variantId'
-                        class="color-box">
-                    <p v-on:mouseover='updateProduct(variant.variantImage)'>{{variant.variantColor}}</p>
-                    </li>
-                </ul>
-
-                <a :href="link">Here you can find more {{product}}</a> <!-- 'v-bind:href' has a shortcut to simply ':href' -->
-                <br>
-
-                <button v-on:click='addToCart'>Add to Cart</button>
-                <button v-on:click='removeFromCart'>Delete </button>
-                <div class="cart">
-                    <p>Cart ({{cart}})</p>
+                <div 
+                    v-for='variant in variants' 
+                    v-bind:key='variant.variantId'
+                    class="color-box"
+                    v-bind:style='{backgroundColor: variant.variantColor}'
+                    v-on:mouseover='updateProduct(variant.variantImage)'>
                 </div>
-                <br>
+                <div>
+                    <br>
+                    <a :href="link">Here you can find more {{product}}</a> <!-- 'v-bind:href' has a shortcut to simply ':href' -->
+                    <br>
+
+                    <button v-on:click='addToCart'>Add to Cart</button>
+                    <button v-on:click='removeFromCart'>Delete </button>
+                    <div class="cart">
+                        <p>Cart ({{cart}})</p>
+                    </div>
+                    <br>
+                </div>
             </div>
             
         </div>
