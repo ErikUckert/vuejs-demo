@@ -14,12 +14,12 @@
                 <img v-show='inventory > 10' v-bind:src="image" alt="">
                 <img v-show='inventory <= 10' v-bind:src="oosImage" v-bind:alt="product + ' ' + altText">
             </div>
-            <div class="produtc-info">
+            <div class="product-info">
                 <h1>{{title}}</h1>
                 <span v-if='onSale'>{{title}} are on Sale right now!</span>
-                <p v-if='inStock'>In Stock</p>
-                <p v-else-if='inventory <= 10 && inventory > 0'>Almost sold out</p>
-                <p v-else v-bind:class='{outOfStock: !inStock}'>Out of Stock</p>
+                <p v-if='inStock > 10'>In Stock</p>
+                <p v-else-if='inStock <= 10 && inStock > 0'>Almost sold out</p>
+                <p v-else v-bind:class='{outOfStock: !inStock}'>Out of Stock</p> 
                 <ul>
                     <li v-for='detail in details'>{{detail}}</li>
                 </ul>
