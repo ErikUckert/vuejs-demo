@@ -16,7 +16,7 @@
             </div>
             <div class="product-info">
                 <h1>{{title}}</h1>
-                <span v-if='onSale'>{{title}} are on Sale right now!</span>
+                <span>{{sale}}</span>
                 <p v-if='inStock > 10'>In Stock</p>
                 <p v-else-if='inStock <= 10 && inStock > 0'>Almost sold out</p>
                 <p v-else v-bind:class='{outOfStock: !inStock}'>Out of Stock</p> 

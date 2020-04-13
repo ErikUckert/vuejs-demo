@@ -8,20 +8,22 @@ var app = new Vue({
         altText: 'Out of Stock',
         link: 'https://www.amazon.de/s?k=socken&__mk_de_DE=ÅMÅŽÕÑ&ref=nb_sb_noss_2',
         inventory: 100,
-        onSale: true,
+        onSale: false,
         details: ['100% cotton', '0% polyester', '110% superstylisch'],
         variants: [
             {
                 variantID: 0,
                 variantColor: 'green',
                 variantImage: './assets/vmSocks-green-onWhite.jpg',
-                variantQuantity: 99
+                variantQuantity: 99,
+                onSale: true
             },
             {
                 variantID: 1,
                 variantColor: 'blue',
                 variantImage: './assets/vmSocks-blue-onWhite.jpg',
-                variantQuantity: 0
+                variantQuantity: 0,
+                onSale: false
             }
         ],
         cart: 0
@@ -49,6 +51,13 @@ var app = new Vue({
         },
         inStock() {
             return this.variants[this.selectedVariant].variantQuantity
+        },
+        sale() {
+            if (this.variants[this.selectedVariant].onSale) {
+                return this.brand + ' ' + this.product + 'are in Sale right now!'
+            }
+            
+            return 'Sorry, no Sale for ' + this.brand + ' ' + this.product + ' right now!'
         }
     }
 })
