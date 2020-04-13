@@ -18,7 +18,7 @@ var app = new Vue({
                 variantID: 2,
                 variantColor: 'black'
             }
-
-        ]
+        ],
+        cart: 0
     }
 })
