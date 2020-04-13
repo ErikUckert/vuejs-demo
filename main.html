@@ -26,7 +26,7 @@
                 <p>You can order these {{product}} in the following marvelous colors:</p>
                 <ul>
                     <li v-for='variant in variants' v-bind:key='variant.variantId'>
-                    {{variant.variantColor}}
+                    <p v-on:mouseover='updateProduct(variant.variantImage)'>{{variant.variantColor}}</p>
                     </li>
                 </ul>
 
