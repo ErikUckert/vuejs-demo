@@ -15,8 +15,8 @@
                 <img v-show='inventory <= 10' v-bind:src="oosImage" v-bind:alt="product + ' ' + altText">
             </div>
             <div class="produtc-info">
-                <h1>{{product}}</h1>
-                <span v-if='onSale'>{{product}} is on Sale right now!</span>
+                <h1>{{title}}</h1>
+                <span v-if='onSale'>{{title}} are on Sale right now!</span>
                 <p v-if='inStock'>In Stock</p>
                 <p v-else-if='inventory <= 10 && inventory > 0'>Almost sold out</p>
                 <p v-else v-bind:class='{outOfStock: !inStock}'>Out of Stock</p>

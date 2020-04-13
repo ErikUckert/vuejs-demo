@@ -1,7 +1,8 @@
 var app = new Vue({
     el: '#app',
     data: {
-        product: 'socks',
+        brand: 'SuperVue',
+        product: 'Socks',
         image: './assets/vmSocks-green-onWhite.jpg',
         oosImage: './assets/oos-vmSocks-green-onWhite.jpg',
         altText: 'Out of Stock',
@@ -37,6 +38,11 @@ var app = new Vue({
         },
         updateProduct: function(variantImage) {
             this.image = variantImage
+        }
+    },
+    computed: {
+        title() {
+            return this.brand + ' ' + this.product
         }
     }
 })
