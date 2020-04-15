@@ -1,4 +1,11 @@
 Vue.component('product', {
+    props: {
+        premium: {
+            type: Boolean,
+            required: true,
+            default: false
+        }
+    },
     template: 
         `<div class="product">
             <div class="product-image">
@@ -8,6 +15,8 @@ Vue.component('product', {
             <div class="product-info">
                 <h1>{{title}}</h1>
                 <span>{{sale}}</span>
+                <br>
+                <p>Shipping: {{shipping}}</p>
                 <p v-if='inStock > 10'>In Stock</p>
                 <p v-else-if='inStock <= 10 && inStock > 0'>Almost sold out</p>
                 <p v-else v-bind:class='{outOfStock: !inStock}'>Out of Stock</p> 
@@ -100,11 +109,20 @@ Vue.component('product', {
             }
             
             return 'Sorry, no Sale for ' + this.brand + ' ' + this.product + ' right now!'
+        },
+        shipping() {
+            if (this.premium) {
+                return 'free'
+            }
+            return '2.99$'
         }
     }
 })
 
 var app = new Vue({
     el: '#app',
+    data: {
+        premium: true
+    }
     
 })
