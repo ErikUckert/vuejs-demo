@@ -139,9 +139,11 @@ var app = new Vue({
         updateCart: function(id) {
             this.cart.push(id)
         },
-        removeFromCart: function() {
-            if (this.cart.length > 0) {
-                this.cart -= 1
+        removeFromCart(id) {
+            for(var i = this.cart.length - 1; i >= 0; i--) {
+                if (this.cart[i] === id) {
+                    this.cart.splice(i, 1);
+                }
             }
         }
     }
