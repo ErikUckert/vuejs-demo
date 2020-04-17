@@ -1,3 +1,14 @@
+Vue.component('product-review', {
+    template: `
+        <div></div>
+    `,
+    data: {
+        return {
+            name: null
+        }
+    }
+})
+
 Vue.component('productDetails', {
     props: {
         details: {
