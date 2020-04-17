@@ -1,3 +1,18 @@
+Vue.component('productDetails', {
+    props: {
+        details: {
+            type: Array,
+            required: true
+        }
+    },
+    template:
+        `
+        <ul>
+            <li v-for='detail in details'>{{detail}}</li>
+        </ul>
+        `
+})
+
 Vue.component('product', {
     props: {
         premium: {
@@ -19,10 +34,10 @@ Vue.component('product', {
                 <p>Shipping: {{shipping}}</p>
                 <p v-if='inStock > 10'>In Stock</p>
                 <p v-else-if='inStock <= 10 && inStock > 0'>Almost sold out</p>
-                <p v-else v-bind:class='{outOfStock: !inStock}'>Out of Stock</p> 
-                <ul>
-                    <li v-for='detail in details'>{{detail}}</li>
-                </ul>
+                <p v-else v-bind:class='{outOfStock: !inStock}'>Out of Stock</p>
+
+                <productDetails :details='details'></productDetails>
+
                 <p>You can order these {{product}} in the following marvelous colors:</p>
                 <div 
                     v-for='(variant, index) in variants' 
